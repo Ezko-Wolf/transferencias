@@ -1,11 +1,12 @@
-import Login from './components/login/Login';
-import Container from '@material-ui/core/Container'
+import Login from './components/login';
+import Transfers from './components/transfers';
 
 function App() {
-  return (      
-    <Container maxWidth="lg">
+  return (     
+    <div>
       <Login/>
-    </Container>     
+      <Transfers/>
+    </div>    
   );
 }
 
