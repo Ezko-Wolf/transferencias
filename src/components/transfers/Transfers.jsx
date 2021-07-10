@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
 import 'bootstrap-css-only';
 import './transfer.css';
-import Error from '../generics/Error';
+import { Modal } from 'react-bootstrap';
+import Confirm from './Confirm';
 
 const Transfers = () => {
 
-    const [isError, setError] = useState({error: false, message: ''});
     const [cuenta, setCuenta] = useState('');
-    const [importe, setImporte] = useState('');
+    const [importe, setImporte] = useState('');   
+    const [isVisible, setVisible] = useState(false);
+
+    const showModal = e => {
+        e.preventDefault();
+        setVisible(true)
+    };
+    const closeModal = e => {
+        e.preventDefault();
+        setVisible(false)
+    };    
 
     const handleChangeCuenta = e =>{
         e.preventDefault();
-        if(isNaN(e.target.value) || e.target.value.includes('.')){
-            setError({
-                error: true,
-                message: 'Ingrese cuenta valida'
-            });
-            setTimeout( () => {
-                setError({
-                    error: false,
-                    message: ''
-                });
-            }, 2000);
-        }
-        else{
+        if(!(isNaN(e.target.value) || e.target.value.includes('.'))){
             setCuenta(e.target.value);
         }
     }
@@ -34,19 +32,7 @@ const Transfers = () => {
         let decimalValido = e.target.value.includes(".") ? e.target.value.split(".") : [] ;
         decimalValido = decimalValido.length > 1 ? decimalValido[1].length > 2 : false;
         //----
-        if(isNaN(e.target.value) || decimalValido){
-            setError({
-                error: true,
-                message: 'Ingrese importe valido'
-            });
-            setTimeout( () => {
-                setError({
-                    error: false,
-                    message: ''
-                });
-            }, 2000);
-        }
-        else{
+        if(!(isNaN(e.target.value) || decimalValido)){
             setImporte(e.target.value);
         }
     }
@@ -72,7 +58,13 @@ const Transfers = () => {
                 <br/>
                 <label>Referencia</label>
                 <textarea className="form-control"  />
-                { isError.error ? <Error message={isError.message} /> : '' }    
+                <br/>
+                <button className="btn btn-primary form-control" onClick={showModal}>Modallll</button>
+                <Modal keyboard={closeModal} onHide={ () => setVisible(false)} animation={false} show={isVisible} size="lg" centered >
+                    <Modal.Body>
+                        <Confirm close={closeModal}/>
+                    </Modal.Body>
+                </Modal>
             </form>
         </div>
     );
