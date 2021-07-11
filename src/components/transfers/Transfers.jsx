@@ -4,11 +4,12 @@ import './transfer.css';
 import { Modal } from 'react-bootstrap';
 import Confirm from './Confirm';
 
-const Transfers = () => {
+const Transfers = ({userData}) => {
 
-    const [cuenta, setCuenta] = useState('');
+    const [cuentaDestino, setCuentaDestino] = useState('');
     const [importe, setImporte] = useState('');   
     const [isVisible, setVisible] = useState(false);
+    const {cuentas} = userData;
 
     const showModal = e => {
         e.preventDefault();
@@ -22,7 +23,7 @@ const Transfers = () => {
     const handleChangeCuenta = e =>{
         e.preventDefault();
         if(!(isNaN(e.target.value) || e.target.value.includes('.'))){
-            setCuenta(e.target.value);
+            setCuentaDestino(e.target.value);
         }
     }
 
@@ -37,21 +38,20 @@ const Transfers = () => {
         }
     }
 
+    const listCuentas = () =>{
+        return cuentas ? cuentas.map(c => <option key={c.cuenta}>{c.cuenta}</option>) : null ;
+    }
+
     return(
         <div className="card posicionamiento">
             <form>
                 <label>Cuenta Origen</label>
                 <select className="form-control">
-                    <option>
-                        opt1
-                    </option>
-                    <option>
-                        optN
-                    </option>
+                    {listCuentas()}
                 </select>
                 <br/>
                 <label>Cuenta de destino</label>
-                <input className="form-control" value={cuenta} type="text" onChange={handleChangeCuenta}/>
+                <input className="form-control" value={cuentaDestino} type="text" onChange={handleChangeCuenta}/>
                 <br/>
                 <label>Importe</label>
                 <input className="form-control" value={importe} type="text" onChange={handleChangeImporte}/>

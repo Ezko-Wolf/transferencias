@@ -3,12 +3,14 @@ import './login.css';
 import 'bootstrap-css-only';
 import { login } from '../../services/apiLogin';
 import Error from '../generics/Error'
+import { useHistory } from 'react-router-dom';
 
 
-const Login = () => {
+const Login = ({handleUserData}) => {
 
     const [userData, setUserData] = useState({userName: '', pass: ''});
     const [isError, setError] = useState({error: false, message: ''});
+    const history = useHistory();
 
     const clearError = () => {
         setTimeout(() => {
@@ -33,7 +35,9 @@ const Login = () => {
             const result = login(userData);
             if(result.statusCode === 200){
                 console.log(result.body);
-                //localStorage.setItem('usrToken', JSON.stringify(result.body));
+                localStorage.setItem('usrToken', JSON.stringify(result.body.token));
+                handleUserData(result.body);
+                history.push("/transfers");
             }               
             else if(result.statusCode === 401){
                 setError({
@@ -72,8 +76,8 @@ const Login = () => {
             <br />
             <input type="password" name="pass" id="inputPass" value = {userData.pass} onChange = {handleChange} className="form-control"/>
             <br />
+            <button className="btn btn-primary form-control mb-3" onClick={handleSend}>Ingresar</button>            
             { isError.error ? <Error message={isError.message} /> : '' }
-            <button className="btn btn-primary form-control" onClick={handleSend}>Ingresar</button>
           </form>
         </section>
       </div>

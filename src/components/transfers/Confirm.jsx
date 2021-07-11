@@ -1,7 +1,9 @@
 import React from 'react';
 import 'bootstrap-css-only';
+import { useHistory } from 'react-router-dom';
 
 const Confirm = ({close}) => {
+    const history = useHistory();
     return(
         <div>
             <label>Cuenta Origen</label>
@@ -16,7 +18,7 @@ const Confirm = ({close}) => {
             <label>Referencia</label>
             <textarea disabled className="form-control" value='prueba'/>
             <br/>
-            <button className='btn btn-primary'>Confirmar</button>
+            <button className='btn btn-primary' onClick={() => history.push('/ticket')}>Confirmar</button>
             <button className='btn btn-secondary' onClick={close} >Cancelar</button>
         </div>
     );
