@@ -54,7 +54,10 @@ const Transfers = ({userData}) => {
                 <input className="form-control" value={cuentaDestino} type="text" onChange={handleChangeCuenta}/>
                 <br/>
                 <label>Importe</label>
-                <input className="form-control" value={importe} type="text" onChange={handleChangeImporte}/>
+                <div class="input-group mb-3">                    
+                    <span class="input-group-text">$</span>
+                    <input type="text" value={importe} onChange={handleChangeImporte} class="form-control" aria-label="Amount (to the nearest dollar)"/>
+                </div>
                 <br/>
                 <label>Referencia</label>
                 <textarea className="form-control"  />
