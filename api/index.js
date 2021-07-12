@@ -64,42 +64,42 @@ const getAccount = accountNumber => {
 
     let accounts = [
         {
-            nombre: 'Gaston', 
-            apellido: 'Mediña',
+            nombre: 'Pedro', 
+            apellido: 'Diaz',
             cuentas: [
                 {
-                    cuenta: 1245,
+                    cuenta: 563445,
                     saldo:24235,
                     moneda: 'UYU'
                 },
                 {
-                    cuenta: 3453,
+                    cuenta: 934856,
                     saldo:454,
                     moneda: 'USD'
                 },
                 {
-                    cuenta: 764,
+                    cuenta: 3467,
                     saldo:456,
                     moneda: 'EUR'
                 }
             ]
         },
         {
-            nombre: 'Jennifer', 
-            apellido: 'Duarte',
+            nombre: 'Marta', 
+            apellido: 'Perez',
             cuentas: [
                 {
-                    cuenta: 867,
+                    cuenta: 867465,
                     saldo:678769,
                     moneda: 'UYU'
                 },
                 {
-                    cuenta: 678,
+                    cuenta: 678534,
                     saldo:45633,
                     moneda: 'USD'
                 },
                 {
-                    cuenta: 797,
+                    cuenta: 797324,
                     saldo:63534,
                     moneda: 'EUR'
                 }

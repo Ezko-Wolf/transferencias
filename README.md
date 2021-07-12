@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Hola!!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Para correr el proyecto, luego de hacer el npm i en la raiz, debemos dirigirnos a la carpeta ./api. Alli debemos correr otro npm i.
 
-## Available Scripts
+En una terminal ejecutar node index.js (dentro de la carpeta api) para levantar la MockApi.
 
-In the project directory, you can run:
+Luego en la raiz del proyecto ejecutamos npm start y ya queda listo para probar.
 
-### `npm start`
+## Comentarios
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Bueno, como comentario principal he de decir que me llevo mas tiempo del pensado debido a algunos factores que no tuve en cuenta.
+El principal de estos factores fue haber empezado a codear sin diagramar la solucion, con la ansiedad de empezar a resolverlo no lo pense bien y luego se me hizo un poco cuesta arriba ya que
+no tenia un camino bien definido.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Limitaciones
+Respecto a limitaciones creo que cubre todos los puntos de la letra por lo que entiendo que no tendria limitaciones funcionales.
+Hay un detalle que me quedo pendiente que es al dar F5 en las transferencias no vuelve a listarnos las cuentas del usuario.
+Tambien al dar f5 en el ticket arroja un error ya que no puede cargar algunas props que recibe por parametro.
 
-### `npm test`
+## Mejoras
+Como mejoras utilizaria algn context o redux para manejar un state mas global y asi corregir facilmente los errores anteriores.
+Otra forma seria al no obtener los parametros redirigir al usuario a la ventana de transfer y en la ventana de transfer al no tener las cuentas utilizar useEffect
+con un llamado a la api para que devuelva la informacion nuevamente para ese token.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Datos de prueba
+logins:
+    user: gaston24
+    pass: gaston123
+    -------------
+    user: jenny
+    pass: jenny123
 
-### `npm run build`
+cuentas destino
+[
+        {
+            nombre: 'Pedro', 
+            apellido: 'Diaz',
+            cuentas: [
+                {
+                    cuenta: 563445,
+                    saldo:24235,
+                    moneda: 'UYU'
+                },
+                {
+                    cuenta: 934856,
+                    saldo:454,
+                    moneda: 'USD'
+                },
+                {
+                    cuenta: 3467,
+                    saldo:456,
+                    moneda: 'EUR'
+                }
+            ]
+        },
+        {
+            nombre: 'Marta', 
+            apellido: 'Perez',
+            cuentas: [
+                {
+                    cuenta: 867465,
+                    saldo:678769,
+                    moneda: 'UYU'
+                },
+                {
+                    cuenta: 678534,
+                    saldo:45633,
+                    moneda: 'USD'
+                },
+                {
+                    cuenta: 797324,
+                    saldo:63534,
+                    moneda: 'EUR'
+                }
+            ]
+        }
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    ]
