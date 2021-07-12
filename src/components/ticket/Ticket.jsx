@@ -17,44 +17,51 @@ const Ticket = ({transfer}) => {
     return (
         <Fragment>
             <Header/>
-            <div>
-                <div className="row justify-content-center">
-                    <label className="col-6 col-md-4 col-xl-2">Numero de transferencia</label>
-                    <label className="col-6 col-md-4 col-xl-2 textRigth">{Math.floor(Math.random()*10000)}</label>            
-                </div>
-
-                <div className="row justify-content-center">
-                    <label className="col-6 col-md-4 col-xl-2 ">Cuenta origen</label>
-                    <label className="col-6 col-md-4 col-xl-2 textRigth">{originAccount}</label>
-                </div>
-
-                <div className="row justify-content-center">
-                    <label className="col-6 col-md-4 col-xl-2">Destinatario</label>
-                    <label className="col-6 col-md-4 col-xl-2 textRigth">{`${nombre} ${apellido}`}</label>
-                </div>
-
-                <div className="row justify-content-center">
-                    <label className="col-6 col-md-4 col-xl-2">Cuenta de destino</label>
-                    <label className="col-6 col-md-4 col-xl-2 textRigth">{targetAccountNumber}</label>
-                </div>
-
-                <div className="row justify-content-center">
-                    <label className="col-6 col-md-4 col-xl-2">Importe</label>
-                    <label className="col-6 col-md-4 col-xl-2 textRigth">{badge}:{amount}</label>
-                </div>
-
-                <div className="row justify-content-center">
-                    <label className="col-6 col-md-4 col-xl-2">Referencia</label>
-                    <label className="col-6 col-md-4 col-xl-2 textRigth">{reference}</label>
-                </div>
-
-                <div className="row justify-content-center">
-                    <label className="col-6 col-md-4 col-xl-2">Fecha</label>
-                    <label className="col-6 col-md-4 col-xl-2 textRigth">{date}</label>
-                </div>
-                <button onClick={handleBack}>
+            <div className="card posicionamientoTicket">
+                    <div className="card-title">
+                        <h3>Resumen: </h3>
+                    </div>
+                    <hr/>
+                <section className="card-Body">                    
+                    <div className="row pt-3 justify-content-evently">
+                        <label className="col-5 ">Numero de transferencia</label>
+                        <label className="col-5  textRigth">{Math.floor(Math.random()*10000)}</label>            
+                    </div>
+                    <hr/>
+                    <div className="row justify-content-evently">
+                        <label className="col-5  ">Cuenta origen</label>
+                        <label className="col-5  textRigth">{originAccount}</label>
+                    </div>
+                    <hr/>
+                    <div className="row justify-content-evently">
+                        <label className="col-5 ">Destinatario</label>
+                        <label className="col-5  textRigth">{`${nombre} ${apellido}`}</label>
+                    </div>
+                    <hr/>
+                    <div className="row justify-content-evently">
+                        <label className="col-5 ">Cuenta de destino</label>
+                        <label className="col-5  textRigth">{targetAccountNumber}</label>
+                    </div>
+                    <hr/>
+                    <div className="row justify-content-evently">
+                        <label className="col-5 ">Importe</label>
+                        <label className="col-5  textRigth">{badge}:{amount}</label>
+                    </div>
+                    <hr/>
+                    <div className="row justify-content-evently">
+                        <label className="col-5 ">Referencia</label>
+                        <label className="col-5  textRigth">{reference}</label>
+                    </div>
+                    <hr/>
+                    <div className="row pb-3 justify-content-evently">
+                        <label className="col-5 ">Fecha</label>
+                        <label className="col-5  textRigth">{date}</label>
+                    </div>
+                        
+                </section> 
+                <button className="btn btn-primary" onClick={handleBack}>
                     Volver
-                </button>
+                </button>           
             </div>
         </Fragment>
     );

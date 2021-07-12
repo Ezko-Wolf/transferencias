@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import 'bootstrap-css-only';
 
 const Header = () =>{
     const history = useHistory();
@@ -12,7 +13,7 @@ const Header = () =>{
     }
 
     return (
-        <button onClick={handleLogOut}>
+        <button className="btn btn-dark mt-2 ml-1" onClick={handleLogOut}>
             Cerrar sesion
         </button>
     );

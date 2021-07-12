@@ -6,14 +6,11 @@
 ✔️ Referencia o Comentario: un texto libre de hasta 255 caracteres a modo de referencia
 ✔️ logout.
 ✔️ tipo de cambio como servicio y todos los servicios
-
-
-falta la divisa y la logica del tipo de cambio.
-en el confirm falta el tipo de cambio.
+✔️ en el confirm falta el tipo de cambio.
+✔️ falta la divisa y la logica del tipo de cambio.
 si la cuenta es la misma no permite giro o si es del mismo user
-. 
 
-dar estilo al ticket, al transfer, logout y login
+dar estilo al ticket, al transfer, logout
 
 
 

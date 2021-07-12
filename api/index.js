@@ -130,9 +130,18 @@ const authenticate = incomingToken => {
 
 const geteEchangeRate = () => {
     return {
-        UYU: 1,
-        USD: 45.05,
-        EUR: 55.04
+        UYU: {
+            USD: 45.05,
+            EUR: 55.04
+        },
+        USD: {
+            EUR: 0.84,
+            UYU: 44.03
+        },
+        EUR: {
+            USD: 1.19,
+            UYU: 52.22
+        }
     }
 }
 

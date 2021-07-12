@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './login.css';
 import 'bootstrap-css-only';
-import { login } from '../../services/apiLogin';
+import { login } from '../../services/api';
 import Error from '../generics/Error'
 import { useHistory } from 'react-router-dom';
 

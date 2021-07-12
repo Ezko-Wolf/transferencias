@@ -39,7 +39,7 @@ const transfer = async dataTransfer => {
     try {
         let token = localStorage.getItem('usrToken');
         let response = await fetch(`${URI}/transfer`,{
-        method: "Post",
+        method: "POST",
             headers:{
                 "Content-Type": 'application/json',
                 "Access-Control-Allow-Origin": "*",
@@ -47,7 +47,7 @@ const transfer = async dataTransfer => {
             },
             body: JSON.stringify(dataTransfer)
         });
-        response = await response.json();
+        console.log(response);
         return response;
     } catch (error) {
        return error; 
@@ -58,7 +58,7 @@ const exchangeRate = async () => {
     try {
         let token = localStorage.getItem('usrToken');
         let response = await fetch(`${URI}/exchangeRate`,{
-        method: "Post",
+        method: "GET",
             headers:{
                 "Content-Type": 'application/json',
                 "Access-Control-Allow-Origin": "*",

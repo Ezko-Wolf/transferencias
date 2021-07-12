@@ -1,5 +1,25 @@
-.posicionamiento{
-    width: 100vh;
+@import 'bootstrap-css-only';
+.primaryCard{
+    width: 50vh;
     margin: 0 auto;
-    margin-top: 20vh;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.secondaryCard{
+    width: 50vh;
+    margin: 0 auto;
+}
+
+.justify-content-evenly{
+    justify-content: space-evenly;
+    height: 10vh;
+}
+
+.justify-content-around{
+    justify-content: space-around;
+}
+
+.centerText{
+    text-align: center;
 }
