@@ -9,16 +9,17 @@ function App() {
 
   let userLoged = localStorage.getItem('usrToken');
   const [userData, setUserData] = useState({});
+  const [transfer, setTransfer] = useState({});
 
   return (     
     <HashRouter>
       <Switch>
         <PrivateRoute path="/ticket" toEval={userLoged} redir="/">
-          <Ticket/>
+          <Ticket transfer={transfer}/>
         </PrivateRoute> 
 
         <PrivateRoute path="/transfers" toEval={userLoged} redir="/">
-          <Transfers userData={userData}/>
+          <Transfers userData={userData} handleTransfer={setTransfer}/>
         </PrivateRoute> 
 
         <PrivateRoute path="/" toEval={!userLoged} redir="/transfers">

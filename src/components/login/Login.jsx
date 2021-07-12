@@ -21,7 +21,7 @@ const Login = ({handleUserData}) => {
         }, 5000);
     }
 
-    const handleSend = e => {
+    const handleSend = async e => {
         e.preventDefault();
         const { userName, pass } = userData;
 
@@ -32,17 +32,16 @@ const Login = ({handleUserData}) => {
             });
             clearError();
         } else {
-            const result = login(userData);
-            if(result.statusCode === 200){
-                console.log(result.body);
-                localStorage.setItem('usrToken', JSON.stringify(result.body.token));
-                handleUserData(result.body);
+            const result = await login(userData);
+            if(result){
+                localStorage.setItem('usrToken', result.token);
+                handleUserData(result);
                 history.push("/transfers");
             }               
-            else if(result.statusCode === 401){
+            else {
                 setError({
                     error: true,
-                    message: result.message
+                    message: 'Usuario o contraseña incorrecta'
                 });
                 clearError();
             }                
@@ -76,7 +75,7 @@ const Login = ({handleUserData}) => {
             <br />
             <input type="password" name="pass" id="inputPass" value = {userData.pass} onChange = {handleChange} className="form-control"/>
             <br />
-            <button className="btn btn-primary form-control mb-3" onClick={handleSend}>Ingresar</button>            
+            <button className="btn btn-primary form-control" onClick={handleSend}>Ingresar</button>            
             { isError.error ? <Error message={isError.message} /> : '' }
           </form>
         </section>

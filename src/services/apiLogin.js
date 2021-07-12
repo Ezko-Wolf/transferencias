@@ -1,57 +1,75 @@
-const login = user => {
+const URI = 'http://localhost:3002';
 
-    const { userName, pass } = user;
-    if(userName === 'Tonga' && pass === 'tonga')
-        return {
-            statusCode:200,
-            body:{
-                token:'kdfaslufh4897h3f872f0733fhj',
-                nombre: 'Gaston', 
-                apellido: 'Mediña',
-                cuentas: [
-                    {
-                        cuenta: 1245,
-                        saldo:24235,
-                        moneda: 'UYU'
-                    },
-                    {
-                        cuenta: 3453,
-                        saldo:454,
-                        moneda: 'USD'
-                    },
-                    {
-                        cuenta: 764,
-                        saldo:456,
-                        moneda: 'EUR'
-                    }
-                ]
-            }}
-            if(userName === 'Jenny' && pass === 'jenny')
-            return {
-                statusCode:200,
-                body:{
-                    token:'jenytoken',
-                    nombre: 'Jennifer', 
-                    apellido: 'Duarte',
-                    cuentas: [
-                        {
-                            cuenta: 867,
-                            saldo:678769,
-                            moneda: 'UYU'
-                        },
-                        {
-                            cuenta: 678,
-                            saldo:45633,
-                            moneda: 'USD'
-                        },
-                        {
-                            cuenta: 797,
-                            saldo:63534,
-                            moneda: 'EUR'
-                        }
-                    ]
-                }}
-    return {statusCode:401, message:'usuario o contraseña incorrecta'}
+const login = async user => {
+    try {
+        let response = await fetch(`${URI}/login`,{
+        method: "POST",
+            headers:{
+                "Content-Type": 'application/json',
+                "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify(user)
+        });
+        response = await response.json();
+        return response;
+    } catch (error) {
+       return null; 
+    }
 }
 
-export {login};
+const getAccount = async accountNumber => {
+    try {
+        let token = localStorage.getItem('usrToken');
+        let response = await fetch(`${URI}/account?number=${accountNumber}`,{
+        method: "GET",
+            headers:{
+                "Content-Type": 'application/json',
+                "Access-Control-Allow-Origin": "*",
+                "Authorization": `bearer ${token}`
+            },
+        });
+        response = await response.json();
+        return response;
+    } catch (error) {
+       return error; 
+    }
+}
+
+const transfer = async dataTransfer => {
+    try {
+        let token = localStorage.getItem('usrToken');
+        let response = await fetch(`${URI}/transfer`,{
+        method: "Post",
+            headers:{
+                "Content-Type": 'application/json',
+                "Access-Control-Allow-Origin": "*",
+                "Authorization": `bearer ${token}`
+            },
+            body: JSON.stringify(dataTransfer)
+        });
+        response = await response.json();
+        return response;
+    } catch (error) {
+       return error; 
+    }
+}
+
+const exchangeRate = async () => {
+    try {
+        let token = localStorage.getItem('usrToken');
+        let response = await fetch(`${URI}/exchangeRate`,{
+        method: "Post",
+            headers:{
+                "Content-Type": 'application/json',
+                "Access-Control-Allow-Origin": "*",
+                "Authorization": `bearer ${token}`
+            },
+        });
+        response = await response.json();
+        return response;
+    } catch (error) {
+       return error; 
+    }
+}
+
+export {login, getAccount, transfer, exchangeRate};
