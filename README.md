@@ -22,6 +22,8 @@ Como mejoras utilizaria algn context o redux para manejar un state mas global y 
 Otra forma seria al no obtener los parametros redirigir al usuario a la ventana de transfer y en la ventana de transfer al no tener las cuentas utilizar useEffect
 con un llamado a la api para que devuelva la informacion nuevamente para ese token.
 
+Otras mejoras que haria serian segmentacion de codigo, por ejemplo en el transfer hay mucha logica que podria extraerse a un archivo para facilitar la legibilidad del codigo.
+
 ## Datos de prueba
 logins:
     user: gaston24
